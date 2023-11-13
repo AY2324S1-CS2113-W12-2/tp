@@ -20,6 +20,8 @@ public class ViewFinancialStatement extends Command {
     public void execute() {
         assert financialStatement != null;
         financialStatement.printTransactions();
-        logger.log(loggerLevel, "financial statement was successfully displayed");
+        if (islogging) {
+            logger.log(loggerLevel, "financial statement was successfully displayed");
+        }
     }
 }

@@ -38,7 +38,9 @@ public class UpdateBudget extends Command {
         }
         budgetHandler.setBudget(budget);
         Ui.printMultipleText(new String[] {"The budget was updated to:", String.valueOf(budget.getBudget())});
-        logger.log(loggerLevel, "budget was successfully updated");
+        if (islogging) {
+            logger.log(loggerLevel, "budget was successfully updated");
+        }
     }
 
 }

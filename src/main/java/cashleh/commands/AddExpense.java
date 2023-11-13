@@ -32,7 +32,9 @@ public class AddExpense extends Command {
     public void execute() {
         expenseStatement.addExpense(expenseToAdd);
         Ui.printMultipleText(new String[] {"The following expense was added:", expenseToAdd.toString()});
-        logger.log(loggerLevel, "expense entry was successfully added to the expense statement");
+        if (islogging) {
+            logger.log(loggerLevel, "expense entry was successfully added to the expense statement");
+        }
     }
 
 }

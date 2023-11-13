@@ -27,7 +27,9 @@ public class DeleteBudget extends Command {
             assert !budgetHandler.getBudget().isActive();
             Ui.printMultipleText(new String[] {"Alright, CashLeh has just deleted your previous budget!", "Watch out "
                     + "though as spending without budget ain't smart..."});
-            logger.log(loggerLevel, "budget was successfully deleted");
+            if (islogging) {
+                logger.log(loggerLevel, "budget was successfully deleted");
+            }
         } else {
             String text = "Please create a new budget as you haven't"
                     + " set one yet or deleted the previous one.";

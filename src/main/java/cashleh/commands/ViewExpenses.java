@@ -17,6 +17,8 @@ public class ViewExpenses extends Command {
     public void execute() {
         assert expenseStatement != null;
         expenseStatement.printExpenses();
-        logger.log(loggerLevel, "expense statement was successfully displayed");
+        if (islogging) {
+            logger.log(loggerLevel, "expense statement was successfully displayed");
+        }
     }
 }

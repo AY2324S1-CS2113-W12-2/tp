@@ -24,6 +24,8 @@ public class ViewBudget extends Command {
     @Override
     public void execute() throws CashLehBudgetException {
         budgetHandler.printBudget();
-        logger.log(loggerLevel, "viewBudget was successfully executed.");
+        if (islogging) {
+            logger.log(loggerLevel, "viewBudget was successfully executed.");
+        }
     }
 }

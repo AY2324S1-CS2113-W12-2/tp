@@ -36,7 +36,9 @@ public class FilterTransaction extends Command{
         try {
             financialStatement.findTransaction(transactionToFind.getDescription(), transactionToFind.getAmount(),
                     transactionToFind.getDate(), transactionToFind.getCategory());
-            logger.log(loggerLevel, "transaction entry was successfully filtered");
+            if (islogging) {
+                logger.log(loggerLevel, "transaction entry was successfully filtered");
+            }
         } catch (CashLehMissingTransactionException e) {
             throw new CashLehMissingTransactionException();
         }

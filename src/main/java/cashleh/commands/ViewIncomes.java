@@ -17,6 +17,8 @@ public class ViewIncomes extends Command {
     public void execute() {
         assert incomeStatement != null;
         incomeStatement.printIncomes();
-        logger.log(loggerLevel, "income statement was successfully displayed");
+        if (islogging) {
+            logger.log(loggerLevel, "income statement was successfully displayed");
+        }
     }
 }

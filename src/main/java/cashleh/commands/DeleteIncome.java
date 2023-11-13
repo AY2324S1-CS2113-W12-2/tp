@@ -34,7 +34,9 @@ public class DeleteIncome extends Command {
                 "Noted! CashLeh has removed the following income:",
                 incomeBeingDeleted
             });
-            logger.log(loggerLevel, "income entry was successfully deleted");
+            if (islogging) {
+                logger.log(loggerLevel, "income entry was successfully deleted");
+            }
         } catch (CashLehMissingTransactionException e) {
             throw new CashLehMissingTransactionException();
         }

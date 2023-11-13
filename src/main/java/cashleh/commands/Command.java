@@ -10,7 +10,8 @@ import java.util.logging.Logger;
  */
 public class Command {
     protected Logger logger = Logger.getLogger("CommandLogger");
-    protected Level loggerLevel = Level.OFF;
+    protected Level loggerLevel = Level.INFO;
+    protected boolean islogging = false;
 
     private int index;
 

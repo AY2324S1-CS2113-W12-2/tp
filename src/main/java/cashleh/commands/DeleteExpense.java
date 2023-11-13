@@ -34,7 +34,9 @@ public class DeleteExpense extends Command {
                 "Noted! CashLeh has removed the following expense:",
                 expenseBeingDeleted
             });
-            logger.log(loggerLevel, "expense entry was successfully deleted");
+            if (islogging) {
+                logger.log(loggerLevel, "expense entry was successfully deleted");
+            }
         } catch (CashLehMissingTransactionException e) {
             throw new CashLehMissingTransactionException();
         }

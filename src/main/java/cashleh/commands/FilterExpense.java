@@ -33,7 +33,9 @@ public class FilterExpense extends Command {
             assert expenseStatement != null;
             expenseStatement.findExpense(expenseToFind.getDescription(), expenseToFind.getAmount(),
                     expenseToFind.getDate(), expenseToFind.getCategory());
-            logger.log(loggerLevel, "expense entry was successfully filtered");
+            if (islogging) {
+                logger.log(loggerLevel, "expense entry was successfully filtered");
+            }
         } catch (CashLehMissingTransactionException e) {
             throw new CashLehMissingTransactionException();
         }

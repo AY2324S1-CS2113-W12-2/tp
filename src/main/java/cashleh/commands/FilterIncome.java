@@ -33,7 +33,9 @@ public class FilterIncome extends Command{
             assert incomeStatement != null;
             incomeStatement.findIncome(incomeToFind.getDescription(), incomeToFind.getAmount(),
                     incomeToFind.getDate(), incomeToFind.getCategory());
-            logger.log(loggerLevel, "income entry was successfully filtered");
+            if (islogging) {
+                logger.log(loggerLevel, "income entry was successfully filtered");
+            }
         } catch (CashLehMissingTransactionException e) {
             throw new CashLehMissingTransactionException();
         }
