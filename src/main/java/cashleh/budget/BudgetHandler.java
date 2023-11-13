@@ -53,35 +53,33 @@ public class BudgetHandler {
     }
 
     /**
-     * Manages the situation in which the user spent more than 75% of its budget.
+     * Manages the situation in which the user has less than 25% of his budget left (still surplus).
      */
     public void printBasicWarning() {
-        if (budget.isActive()) {
-            String[] texts = {"Hey watch out you do not have that much cash left over according to your budget."
-                    , "Try earning some money before making any crazy expenses!"};
-            Ui.printMultipleText(texts);
-        }
+        assert budget.isActive();
+        String[] texts = {"Hey watch out you do not have that much cash left over according to your budget."
+                , "Try earning some money before making any crazy expenses!"};
+        Ui.printMultipleText(texts);
     }
 
     /**
-     * Manages the situation in which the user spent all of his budget.
+     * Manages the situation in which the user spent all of his budget (or even more and is now running a deficit).
      */
     public void printSeriousWarning() {
         double budgetDeficit = (budget.getBudget() - this.financialStatement.getNetCash());
-        if (budget.isActive()) {
-            String[] texts = new String[]{"Hey watch out you are currently below your budget by: "
-                    + budgetDeficit, "Need some financial advise? Stop spending so much!"};
-            Ui.printMultipleText(texts);
-        }
+        assert budget.isActive();
+        String[] texts = new String[]{"Hey watch out you are currently below your budget by: "
+                + budgetDeficit, "Need some financial advise? Stop spending so much!"};
+        Ui.printMultipleText(texts);
     }
 
     /**
      * Prints an overview of the budget situation containing some text, the net
      * cash on hand and a progress bar indicating how much money is available in terms
      * of budgeting.
-     * An empty bar chart means that the user is doing well and has not used up his budget yet
+     * A full bar chart means that the user is doing well and has not used up his budget yet
      * as he/she has more cash on hand than the set budget (meaning that income is larger than the expenses)
-     * A full bar chart implies that the user has used up all his budget and may now find himself in a deficit.
+     * An empty bar chart implies that the user has used up all his budget and may now find himself in a deficit.
      * @throws CashLehBudgetException when user has not set a budget yet.
      */
     public void printBudget() throws CashLehBudgetException {
